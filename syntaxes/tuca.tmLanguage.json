@@ -1,0 +1,83 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "TUCA Assembly",
+  "scopeName": "source.tuca",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#instructions"
+    },
+    {
+      "include": "#registers"
+    },
+    {
+      "include": "#labels"
+    },
+    {
+      "include": "#definitions"
+    },
+    {
+      "include": "#numbers"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.tuca",
+          "match": "#.*$"
+        }
+      ]
+    },
+    "instructions": {
+      "patterns": [
+        {
+          "name": "keyword.control.tuca",
+          "match": "\\b(ld|ldr|ldi|st|str|add|and|or|not|neg|shl|shr|eq|gt|if|skipif|jmp|jmpr|readpc|loadpc|halt|sub)\\b"
+        }
+      ]
+    },
+    "registers": {
+      "patterns": [
+        {
+          "name": "storage.type.register.tuca",
+          "match": "\\b(r[0-9]|r1[0-5])\\b"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "entity.name.label.tuca",
+          "match": "^[a-zA-Z_][a-zA-Z0-9_]*:"
+        }
+      ]
+    },
+    "definitions": {
+      "patterns": [
+        {
+          "name": "keyword.other.definition.tuca",
+          "match": "^\\s*def\\b"
+        },
+        {
+          "name": "variable.other.constant.tuca",
+          "match": "\\b(op1|op2|result|Dop1|Bop1|Dop2|Bop2|Nop2|rst)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.tuca",
+          "match": "0x[0-9A-Fa-f]+"
+        },
+        {
+          "name": "constant.numeric.decimal.tuca",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    }
+  }
+}
